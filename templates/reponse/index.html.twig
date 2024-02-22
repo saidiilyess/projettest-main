@@ -1,0 +1,82 @@
+{% extends 'baseB.html.twig' %}
+
+{% block body %}
+    <h1>Reponse index</h1>
+ <style>
+            body {
+                display: flex;
+                min-height: 100vh;
+                align-items: center;
+                justify-content: center;
+                margin: 100px;
+                color: white; /* Setting text color to white */
+            }
+
+            table {
+                width: 80%;
+                margin-top: 130px;
+                color: pink;
+            }
+
+            th,
+            td {
+                padding: 15px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #3498db;
+                color: white;
+            }
+
+            td {
+                background-color: #ecf0f1;
+                color: white;
+            }
+
+            footer {
+                background-color: dark blue;
+                padding: 0;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+
+            }
+            h1 {
+                margin-top: 130px;
+                text-align: center;
+                color: #FC6736;
+
+            }
+        </style>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_reponse</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reponse in reponses %}
+            <tr>
+                <td>{{ reponse.id }}</td>
+                <td>{{ reponse.dateReponse ? reponse.dateReponse|date('Y-m-d') : '' }}</td>
+                <td>{{ reponse.description }}</td>
+                <td>
+                    <a href="{{ path('app_reponse_show', {'id': reponse.id}) }}">show</a>
+                    <a href="{{ path('app_reponse_edit', {'id': reponse.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_reponse_new') }}">Create new</a>
+{% endblock %}

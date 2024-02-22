@@ -1,0 +1,17 @@
+{% extends 'baseB.html.twig' %}
+
+{% block body %}
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <div style="width: 50%; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
+            <h1 style="text-align: center; color: #FC6736;">Create new Reponse</h1>
+
+            <div style="background-color: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                {{ include('reponse/_form.html.twig') }}
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{{ path('app_reponse_index') }}" style="text-decoration: none; color: #3498db;">Back to list</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
